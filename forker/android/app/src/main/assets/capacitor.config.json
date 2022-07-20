@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Forker",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

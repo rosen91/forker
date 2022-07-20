@@ -1,0 +1,7 @@
+{
+  "name": "Forker",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
