@@ -10,6 +10,7 @@ interface PostResponse {
 }
 
 interface Restaurant {
+  id: number;
   name: string;
 }
 
@@ -46,12 +47,19 @@ interface NewPost {
   rating?: number;
   type: "home" | "restaurant" | "other";
   price?: string;
+  recipe_url?: string;
+  restaurant?: Restaurant;
 }
 
 type StoreState = {
   posts: Post[];
   newPost: NewPost | null;
 };
+
+interface SearchResultResponse {
+  id: number;
+  name: string;
+}
 
 const convertBlobToBase64 = (blob: Blob) =>
   new Promise((resolve, reject) => {
@@ -80,6 +88,26 @@ export const usePostsStore = defineStore("posts", {
 
       const res: NewPostResponse = await api.post("/posts", newPost);
       this.posts.push(res.data);
+    },
+    async searchRestaurant(
+      term: string,
+      latitude?: string,
+      longitude?: string
+    ) {
+      const { api } = useApi();
+      const params = new URLSearchParams();
+      params.append("term", term);
+      if (latitude) {
+        params.append("latitude", latitude);
+      }
+      if (longitude) {
+        params.append("longitude", longitude);
+      }
+
+      const res: SearchResultResponse = await api.get(
+        `/search?${params.toString()}`
+      );
+      console.log(res);
     },
   },
 });

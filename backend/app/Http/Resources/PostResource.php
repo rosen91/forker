@@ -20,7 +20,7 @@ class PostResource extends JsonResource
             'caption' => $this->caption,
             'rating' => $this->rating,
             'restaurant' => [
-                'name' => $this->restaurant->name,
+                'name' => $this->restaurant?->name,
             ],
             'images' => $this->getMedia('post_images')->map(function (
                 Media $media

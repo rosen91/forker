@@ -28,8 +28,8 @@ class EditRestaurant extends EditRecord
 
     protected function mutateFormDataBeforeFill(array $data): array
     {
-        $data['latitude'] = $data['coordinates']['coordinates'][0];
-        $data['longitude'] = $data['coordinates']['coordinates'][1];
+        $data['latitude'] = $data['coordinates']['coordinates'][1];
+        $data['longitude'] = $data['coordinates']['coordinates'][0];
 
         return $data;
     }

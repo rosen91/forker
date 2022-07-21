@@ -43,6 +43,7 @@ class Restaurant extends Model implements HasMedia
         ];
         info(json_encode($geo));
         return [
+            'id' => $this->id,
             'title' => $this->name,
             'coordinates' => $this->coordinates,
             '_geo' => [

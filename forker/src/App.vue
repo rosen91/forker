@@ -20,6 +20,7 @@ import {
 import { defineComponent, watchEffect } from "vue";
 import { storeToRefs } from "pinia";
 import { useIonRouter } from "@ionic/vue";
+import { GoogleAuth } from "@codetrix-studio/capacitor-google-auth";
 
 import { usePhotoGallery } from "@/composables/usePhotoGallery";
 import { camera } from "ionicons/icons";
@@ -35,6 +36,12 @@ export default defineComponent({
     IonIcon,
   },
   setup() {
+    GoogleAuth.initialize({
+      clientId: process.env.VUE_APP_GOOGLE_CLIENT_ID,
+      scopes: ["profile", "email"],
+      grantOfflineAccess: true,
+    });
+
     const { takePhoto } = usePhotoGallery();
     const router = useIonRouter();
 

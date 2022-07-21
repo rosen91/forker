@@ -13,12 +13,15 @@
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.15",
         "laravel/scout": "^9.4",
+        "laravel/socialite": "^5.5",
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "league/flysystem-aws-s3-v3": "^3.0",
         "matanyadaev/laravel-eloquent-spatial": "^2.0",
         "meilisearch/meilisearch-php": "^0.24.0",
+        "skagarwal/google-places-api": "^2.0",
         "squirephp/countries-en": "^3.3",
+        "taylornetwork/laravel-username-generator": "^2.7",
         "yepsua/filament-rating-field": "^0.1.0"
     },
     "require-dev": {

@@ -4,6 +4,7 @@ use App\Http\Controllers\CreateSignedAwsUrlController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\SearchRestaurantController;
+use App\Http\Controllers\SocialLoginController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
@@ -26,6 +27,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('search', SearchRestaurantController::class);
+Route::post('social/login', SocialLoginController::class);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('posts', PostController::class);

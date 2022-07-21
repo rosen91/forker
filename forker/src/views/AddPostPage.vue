@@ -21,12 +21,27 @@ import {
   nutritionOutline,
 } from "ionicons/icons";
 
+import { Geolocation } from "@capacitor/geolocation";
+
 import { storeToRefs } from "pinia";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { usePostsStore } from "../stores/posts";
 
 const { newPost } = storeToRefs(usePostsStore());
-const { savePost } = usePostsStore();
+const { savePost, searchRestaurant } = usePostsStore();
+
+/* const printCurrentPosition = async () => {
+  const coordinates = await Geolocation.getCurrentPosition();
+
+  const searchRes = await searchRestaurant(
+    "",
+    coordinates.coords.latitude,
+    coordinates.coords.longitude
+  );
+  console.log(searchRes);
+};
+
+console.log(await printCurrentPosition()); */
 </script>
 
 <template>
